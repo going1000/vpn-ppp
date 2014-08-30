@@ -1,0 +1,13 @@
+#!/bin/sh
+if [ "${5:-}" = "180.166.126.91" ]
+then
+export PATH="/sbin:/usr/sbin:/usr/bin"
+route delete 192.0.0.0
+route delete 10.0.0.0
+
+#route delete 192.168.0.0/16
+#route delete 10.10.0.0/16
+#route delete 10.20.0.0/16
+networksetup -setdnsservers Wi-Fi empty
+dscacheutil -flushcache
+fi

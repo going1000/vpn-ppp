@@ -1,0 +1,12 @@
+#!/bin/sh
+if [ "${5:-}" = "180.166.126.91" ]
+then
+export PATH="/sbin:/usr/sbin:/usr/bin"
+networksetup -setdnsservers Wi-Fi 192.168.1.100
+dscacheutil -flushcache
+route add -net 192.0.0.0 -interface ppp0
+route add -net 10.0.0.0 -interface ppp0
+#route add 192.168.0.0/16 $4
+#route add 10.10.0.0/16 $4
+#route add 10.20.0.0/16 $4
+fi
